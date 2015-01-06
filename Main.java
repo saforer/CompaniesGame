@@ -4,8 +4,8 @@ import java.util.*;
 
 class Main {
 	public static List<Company> companyList = new ArrayList<Company>();
-	public static List<String> usedCompName = new ArrayList<String>();
-	public static List<String> usedSSN = new ArrayList<String>();
+	public static List<Individual> individualList = new ArrayList<Individual>();
+	public static List<Likeable> likeableList = new ArrayList<Likeable>();
 	public static boolean running = true;
 	public static Menu currentMenu;
 	
@@ -16,6 +16,7 @@ class Main {
 		while (running) {
 			currentMenu.Display();
 			
+			@SuppressWarnings("resource")
 			Scanner scanner = new Scanner(System.in);
 			int selection = 0;
 			

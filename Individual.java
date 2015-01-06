@@ -1,10 +1,13 @@
-class Individual {
+import java.util.*;
+
+class Individual implements Likeable {
 	public String SSN;
 	public String fName;
 	public String MI;
 	public String lName;
 	public int dollars;
 	public boolean leadFlag;
+	public List<Relationship>  relationshipOut = new ArrayList<Relationship>();
 	
 	public String toString() {
 		int nameLength = 10;
@@ -18,6 +21,11 @@ class Individual {
 			Leader = " ";
 		}
 		String output = "| " + Leader + " " + SSN + padFName + " " + padMI + ". " + padLName + "   |\n";
+
 		return output;
 	}	
+	
+	public String likeableOutput() {
+		return SSN;
+	}
 }

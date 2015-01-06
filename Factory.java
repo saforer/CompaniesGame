@@ -9,8 +9,8 @@ class Factory {
 		while (temp) {
 			temp = false;
 			tempName = GenerateCompanyName();
-			for (String name : Main.usedCompName) {
-				if (tempName == name) {
+			for (Company company : Main.companyList) {
+				if (tempName == company.name) {
 					temp = true;
 				}
 			}
@@ -22,7 +22,8 @@ class Factory {
 		output.name = tempName;
 		output.dollars = 100000;
 		
-		Main.usedCompName.add(tempName);
+		Main.likeableList.add(output);
+		Main.companyList.add(output);
 		return output;
 	}
 	
@@ -33,21 +34,22 @@ class Factory {
 		while (temp) {
 			temp = false;
 			tempSSN = IndividualSSN();
-			for (String ssn : Main.usedSSN) {
-				if (tempSSN == ssn) {
+			for (Individual individual : Main.individualList) {
+				if (tempSSN == individual.SSN) {
 					temp = true;
 				}
 			}
 		}
 		
-		Main.usedSSN.add(tempSSN);
-		output.SSN = tempSSN;
 		
+		output.SSN = tempSSN;
 		output.fName = IndividualName(0);
 		output.MI = IndividualName(1);
 		output.lName = IndividualName(2);
 		output.dollars = 5000;
 		
+		Main.likeableList.add(output);
+		Main.individualList.add(output);
 		return output;
 	}
 	
