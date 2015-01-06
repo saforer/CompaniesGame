@@ -2,8 +2,8 @@ class IndividualList extends Menu {
 	public IndividualList() {
 		//List company leaders
 		menuText += "-------------------------------------------\n";
-		for (Company company : Main.companyList) {
-			menuText += company.leader.toString();
+		for (Individual individual : Main.individualList) {
+			menuText += individual.toString();
 		}
 		//List company employees
 		menuText += "-------------------------------------------\n";

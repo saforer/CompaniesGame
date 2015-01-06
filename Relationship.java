@@ -7,4 +7,11 @@ public class Relationship {
 	public Relationship(Likeable inLiked) {
 		likedThing = inLiked;
 	}
+	
+	public String toString() {
+		String output = "";
+		output += likedThing.likeableOutput() + " ";
+		output += likedAmount + " ";
+		return output;
+	}
 }

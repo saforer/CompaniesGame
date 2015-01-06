@@ -28,4 +28,12 @@ class Individual implements Likeable {
 	public String likeableOutput() {
 		return SSN;
 	}
+	
+	public void formRelationship(Likeable inLikeable) {
+		relationshipOut.add(new Relationship(inLikeable));
+	}
+	
+	public List<Relationship> viewRelationship() {
+		return relationshipOut;
+	}
 }

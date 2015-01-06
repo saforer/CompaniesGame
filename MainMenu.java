@@ -5,5 +5,6 @@ class MainMenu extends Menu {
 		heldOptions.add(new OpenCompanyList(1));
 		heldOptions.add(new OpenIndividualList(2));
 		heldOptions.add(new OpenLikeableList(3));
+		heldOptions.add(new OpenRelationshipList(4));
 	}
 }

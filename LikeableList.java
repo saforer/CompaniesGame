@@ -3,7 +3,7 @@ class LikeableList extends Menu {
 		menuText = "";
 		
 		for (Likeable thing : Main.likeableList) {
-				System.out.println(thing.likeableOutput());
+				menuText += thing.likeableOutput() + " \n";
 		}
 		
 		

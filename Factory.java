@@ -1,7 +1,7 @@
 import java.util.*;
 
 class Factory {
-	public static Company GenerateCompany() {
+	public static void GenerateCompany() {
 		boolean temp = true;
 		Company output = new Company();
 		String tempName = "";
@@ -22,9 +22,17 @@ class Factory {
 		output.name = tempName;
 		output.dollars = 100000;
 		
+		//Form relationships with everyone already in the game
+		for (Likeable likeable : Main.likeableList) {
+			output.relationshipOut.add(new Relationship(likeable));
+			System.out.println("Formed relationship with: " + output.likeableOutput() + " and " + likeable.likeableOutput());
+			//Have them form a relationship with you also
+			likeable.formRelationship(output);
+			System.out.println("Formed relationship with: " + likeable.likeableOutput() + " and " + output.likeableOutput());
+		}
+		
 		Main.likeableList.add(output);
 		Main.companyList.add(output);
-		return output;
 	}
 	
 	public static Individual GenerateIndividual() {
@@ -34,10 +42,12 @@ class Factory {
 		while (temp) {
 			temp = false;
 			tempSSN = IndividualSSN();
-			for (Individual individual : Main.individualList) {
-				if (tempSSN == individual.SSN) {
-					temp = true;
-				}
+			for (Likeable likeable : Main.likeableList) {
+				output.relationshipOut.add(new Relationship(likeable));
+				System.out.println("Formed relationship with: " + output.likeableOutput() + " and " + likeable.likeableOutput());
+				//Have them form a relationship with you also
+				likeable.formRelationship(output);
+				System.out.println("Formed relationship with: " + likeable.likeableOutput() + " and " + output.likeableOutput());
 			}
 		}
 		
@@ -47,6 +57,11 @@ class Factory {
 		output.MI = IndividualName(1);
 		output.lName = IndividualName(2);
 		output.dollars = 5000;
+		
+		for (Likeable likeable : Main.likeableList) {
+			output.relationshipOut.add(new Relationship(likeable));
+			System.out.println("Formed relationship with: " + likeable.likeableOutput() + " and " + output.likeableOutput());
+		}
 		
 		Main.likeableList.add(output);
 		Main.individualList.add(output);

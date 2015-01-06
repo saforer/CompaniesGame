@@ -26,4 +26,12 @@ class Company implements Likeable {
 	public String likeableOutput() {
 		return name;
 	}
+	
+	public void formRelationship(Likeable inLikeable) {
+		
+	}
+	
+	public List<Relationship> viewRelationship() {
+		return relationshipOut;
+	}
 }

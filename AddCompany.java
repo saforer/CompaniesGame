@@ -4,7 +4,7 @@ class AddCompany extends MenuOption {
 	}
 	
 	public void Do() {
-		Main.companyList.add(Factory.GenerateCompany());
+		Factory.GenerateCompany();
 		Main.currentMenu = new CompanyList();
 	}
 }
