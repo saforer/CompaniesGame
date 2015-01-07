@@ -19,14 +19,12 @@ public class Relationship {
 		//Look to see if a has a relationship with b already
 		if (!(a.viewRelationship().contains(b))) {
 			//If they don't then form a relationship
-			System.out.println("Forming relationship " + a.likeableOutput() + " & " + b.likeableOutput());
 			a.formRelationship(b);
 		}
 		
 		//Look to see if b has a relationship with a already
 		if (!(b.viewRelationship().contains(a))) {
 			//If they don't then form a relationship
-			System.out.println("Forming relationship " + b.likeableOutput() + " & " + a.likeableOutput());
 			b.formRelationship(a);
 		}
 	}

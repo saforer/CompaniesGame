@@ -1,7 +1,7 @@
 import java.util.*;
 
 class Factory {
-	public static void GenerateCompany() {
+	public static Company GenerateCompany() {
 		boolean temp = true;
 		Company output = new Company();
 		String tempName = "";
@@ -29,6 +29,38 @@ class Factory {
 		
 		Main.likeableList.add(output);
 		Main.companyList.add(output);
+		return output;
+	}
+	
+	public static Company PlayerCompany() {
+		boolean temp = true;
+		Company output = new Company();
+		String tempName = "";
+		
+		while (temp) {
+			temp = false;
+			tempName = GenerateCompanyName();
+			for (Company company : Main.companyList) {
+				if (tempName == company.name) {
+					temp = true;
+				}
+			}
+		}
+		
+		
+		output.leader = GenerateIndividual();
+		output.leader.leadFlag = true;
+		output.name = tempName;
+		output.dollars = 100000;
+		
+		//Form relationships with everyone already in the game
+		for (Likeable likeable : Main.likeableList) {
+			Relationship.pairedRelationship(output, likeable);
+		}
+		
+		Main.likeableList.add(output);
+		Main.companyList.add(output);
+		return output;
 	}
 	
 	public static Individual GenerateIndividual() {

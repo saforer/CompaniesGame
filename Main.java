@@ -8,6 +8,7 @@ class Main {
 	public static List<Likeable> likeableList = new ArrayList<Likeable>();
 	public static boolean running = true;
 	public static Menu currentMenu;
+	public static Company playerCompany;
 	
 	
 	public static void main (String[] args) {
