@@ -9,7 +9,7 @@ class Factory {
 		while (temp) {
 			temp = false;
 			tempName = GenerateCompanyName();
-			for (Company company : Main.companyList) {
+			for (Company company : Main.currentGame.companyList) {
 				if (tempName == company.name) {
 					temp = true;
 				}
@@ -23,12 +23,12 @@ class Factory {
 		output.dollars = 100000;
 		
 		//Form relationships with everyone already in the game
-		for (Likeable likeable : Main.likeableList) {
+		for (Likeable likeable : Main.currentGame.likeableList) {
 			Relationship.pairedRelationship(output, likeable);
 		}
 		
-		Main.likeableList.add(output);
-		Main.companyList.add(output);
+		Main.currentGame.likeableList.add(output);
+		Main.currentGame.companyList.add(output);
 		return output;
 	}
 	
@@ -40,7 +40,7 @@ class Factory {
 		while (temp) {
 			temp = false;
 			tempName = GenerateCompanyName();
-			for (Company company : Main.companyList) {
+			for (Company company : Main.currentGame.companyList) {
 				if (tempName == company.name) {
 					temp = true;
 				}
@@ -54,12 +54,12 @@ class Factory {
 		output.dollars = 100000;
 		
 		//Form relationships with everyone already in the game
-		for (Likeable likeable : Main.likeableList) {
+		for (Likeable likeable : Main.currentGame.likeableList) {
 			Relationship.pairedRelationship(output, likeable);
 		}
 		
-		Main.likeableList.add(output);
-		Main.companyList.add(output);
+		Main.currentGame.likeableList.add(output);
+		Main.currentGame.companyList.add(output);
 		return output;
 	}
 	
@@ -70,7 +70,7 @@ class Factory {
 		while (temp) {
 					temp = false;
 					tempSSN = IndividualSSN();
-					for (Individual individual : Main.individualList) {
+					for (Individual individual : Main.currentGame.individualList) {
 						if (tempSSN == individual.SSN) {
 							temp = true;
 						}
@@ -84,12 +84,12 @@ class Factory {
 		output.lName = IndividualName(2);
 		output.dollars = 5000;
 		
-		for (Likeable likeable : Main.likeableList) {
+		for (Likeable likeable : Main.currentGame.likeableList) {
 			Relationship.pairedRelationship(output, likeable);
 		}
 		
-		Main.likeableList.add(output);
-		Main.individualList.add(output);
+		Main.currentGame.likeableList.add(output);
+		Main.currentGame.individualList.add(output);
 		return output;
 	}
 	

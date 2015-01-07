@@ -12,7 +12,7 @@ class OpenViewCompanies extends MenuOption {
 	}
 	
 	public void Do() {
-		Main.currentMenu = new ViewCompanies();
+		Main.currentGame.currentMenu = new ViewCompanies();
 	}
 }
 
@@ -22,29 +22,15 @@ class Hire extends MenuOption {
 	}
 	
 	public void Do() {
-		Main.playerCompany.dollars -= 1000;
-		Main.playerCompany.employeeList.add(Factory.GenerateIndividual());
-	}
-}
-
-class OpenCompanyList extends MenuOption {
-	public OpenCompanyList(int i) {
-		optionText = i + ") Open Company List";
-	}
-	
-	public void Do() {
-		Main.currentMenu = new CompanyList();
-	}
-}
-
-class AddCompany extends MenuOption {
-	public AddCompany(int i) {
-		optionText = i + ") Add Company to List";
-	}
-	
-	public void Do() {		
-		System.out.println("Company added");
-		
+		int employeecost = 20000;
+		if (Main.currentGame.playerCompany.dollars >= employeecost) {
+			Main.currentGame.playerCompany.dollars -= employeecost;		
+			Individual tempIndividual = Factory.GenerateIndividual();
+			System.out.println(tempIndividual.toString());
+			Main.currentGame.playerCompany.employeeList.add(tempIndividual);
+		} else {
+			System.out.println("You need " + employeecost + " to purchase an employee, and only have " + Main.currentGame.playerCompany.dollars);
+		}
 	}
 }
 
@@ -54,11 +40,11 @@ class StartNewGame extends MenuOption {
 	}
 	
 	public void Do() {
-		Main.playerCompany = Factory.PlayerCompany();
+		Main.currentGame.playerCompany = Factory.PlayerCompany();
 		for (int i = 0; i<10; i++)	{
 			System.out.println(Factory.GenerateCompany().toString());
 		}		
-		Main.currentMenu = new GameMenu();
+		Main.currentGame.currentMenu = new GameMenu();
 	}
 }
 
@@ -68,27 +54,7 @@ class OpenGameMenu extends MenuOption {
 	}
 	
 	public void Do() {
-		Main.currentMenu = new GameMenu();
-	}
-}
-
-class OpenIndividualList extends MenuOption {
-	public OpenIndividualList(int i) {
-		optionText = i + ") Open Individual List";
-	}
-	
-	public void Do() {
-		Main.currentMenu = new IndividualList();
-	}
-}
-
-class OpenLikeableList extends MenuOption {
-	public OpenLikeableList(int i) {
-		optionText = i + ") Open List of Likeable Things.";
-	}
-	
-	public void Do() {
-		Main.currentMenu = new LikeableList();
+		Main.currentGame.currentMenu = new GameMenu();
 	}
 }
 
@@ -98,17 +64,7 @@ class OpenMainMenu extends MenuOption {
 	}
 	
 	public void Do() {
-		Main.currentMenu = new MainMenu();
-	}
-}
-
-class OpenRelationshipList extends MenuOption {
-	public OpenRelationshipList(int i) {
-		optionText = i + ") Open List of Relationships.";
-	}
-	
-	public void Do() {
-		Main.currentMenu = new RelationshipList();
+		Main.currentGame.currentMenu = new MainMenu();
 	}
 }
 
@@ -119,6 +75,6 @@ class Quit extends MenuOption {
 	}
 	
 	public void Do() {
-		Main.running = false;
+		Main.currentGame.running = false;
 	}
 }
