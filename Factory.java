@@ -24,11 +24,7 @@ class Factory {
 		
 		//Form relationships with everyone already in the game
 		for (Likeable likeable : Main.likeableList) {
-			output.relationshipOut.add(new Relationship(likeable));
-			System.out.println("Formed relationship with: " + output.likeableOutput() + " and " + likeable.likeableOutput());
-			//Have them form a relationship with you also
-			likeable.formRelationship(output);
-			System.out.println("Formed relationship with: " + likeable.likeableOutput() + " and " + output.likeableOutput());
+			Relationship.pairedRelationship(output, likeable);
 		}
 		
 		Main.likeableList.add(output);
@@ -40,16 +36,14 @@ class Factory {
 		Individual output = new Individual();
 		String tempSSN = "";
 		while (temp) {
-			temp = false;
-			tempSSN = IndividualSSN();
-			for (Likeable likeable : Main.likeableList) {
-				output.relationshipOut.add(new Relationship(likeable));
-				System.out.println("Formed relationship with: " + output.likeableOutput() + " and " + likeable.likeableOutput());
-				//Have them form a relationship with you also
-				likeable.formRelationship(output);
-				System.out.println("Formed relationship with: " + likeable.likeableOutput() + " and " + output.likeableOutput());
-			}
-		}
+					temp = false;
+					tempSSN = IndividualSSN();
+					for (Individual individual : Main.individualList) {
+						if (tempSSN == individual.SSN) {
+							temp = true;
+						}
+					}
+				}
 		
 		
 		output.SSN = tempSSN;
@@ -59,8 +53,7 @@ class Factory {
 		output.dollars = 5000;
 		
 		for (Likeable likeable : Main.likeableList) {
-			output.relationshipOut.add(new Relationship(likeable));
-			System.out.println("Formed relationship with: " + likeable.likeableOutput() + " and " + output.likeableOutput());
+			Relationship.pairedRelationship(output, likeable);
 		}
 		
 		Main.likeableList.add(output);

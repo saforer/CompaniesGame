@@ -28,7 +28,7 @@ class Company implements Likeable {
 	}
 	
 	public void formRelationship(Likeable inLikeable) {
-		
+		relationshipOut.add(new Relationship(inLikeable));
 	}
 	
 	public List<Relationship> viewRelationship() {
